@@ -1,6 +1,6 @@
 FROM gcc AS mybuildstage
 COPY hello.c .
 RUN gcc -o hello hello.c
-FROM ubuntu
+FROM ubuntu:22.10
 COPY --from=mybuildstage hello .
 CMD ["./hello"]
